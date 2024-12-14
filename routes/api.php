@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\MealController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\UserController;
 
@@ -57,4 +58,12 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/customer', [CustomerController::class, 'store']);
     Route::put('/customer/{id}', [CustomerController::class, 'update']);
     Route::delete('/customer/{id}', [CustomerController::class, 'destroy']);
+
+    //meals Routes
+    // customer Routes
+    Route::get('/meal', [MealController::class, 'index']);
+    Route::get('/meal/{id}', [MealController::class, 'show']);
+    Route::post('/meal', [MealController::class, 'store']);
+    Route::put('/meal/{id}', [MealController::class, 'update']);
+    Route::delete('/meal/{id}', [MealController::class, 'destroy']);
 });

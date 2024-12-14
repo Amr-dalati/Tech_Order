@@ -17,7 +17,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $data = category::all();
+        $data = category::with(['meals'])->get();
         return $this->ApiResponse(CategoryResource::collection($data), 'All categories successfully');
     }
 
@@ -37,7 +37,7 @@ class CategoryController extends Controller
      */
     public function show(string $id)
     {
-        $data = category::findOrFail($id);
+        $data = category::with(['meals'])->findOrFail($id);
         return $this->ApiResponse(CategoryResource::make($data), 'category show successfully');
     }
 
